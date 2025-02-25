@@ -9,7 +9,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="fav" element={<FavPage />} />
+          <Route path="/fav" element={<FavPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

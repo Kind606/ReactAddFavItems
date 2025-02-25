@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 
 export interface LikedPhotoValue {
-    likedPhotos: string;
-    toogleLikedPhoto: (id: string) => void;
+  likedPhotos: string;
+  toogleLikedPhoto: (id: string) => void;
 }
 
 export default function AppLayout() {
@@ -18,13 +18,13 @@ export default function AppLayout() {
   };
   return (
     <>
-      <header className="px-4 py-2 flex gap-2 bg-green-800 justify-between">
-        <h1 className="text-xl">FavItems</h1>
-        <span className="hover:-translate-y-1 box-content transition-all cursor-pointer">
-          ❤️
-        </span>
+      <header className="px-4 py-2 flex gap-2 bg-green-800 justify-between fixed z-10 w-full">
+        <Link to="/">
+          <h1>Bildbok</h1>
+        </Link>
+        <Link to="/fav">Fav</Link>
       </header>
-      <main>
+      <main className="pt-10">
         <Outlet context={{ likedPhotos, toogleLikedPhoto }} />
       </main>
     </>
