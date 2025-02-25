@@ -1,17 +1,10 @@
-import { useState } from "react";
+import { useOutletContext } from "react-router";
+import { LikedPhotoValue } from "../AppLayout";
 import { mockedPhoto } from "../data";
 
 export default function HomePage() {
-  const [likedPhotos, setLikedPhotos] = useState<string[]>([]);
+  const { likedPhotos, toogleLikedPhoto } = useOutletContext<LikedPhotoValue>();
 
-  const toogleLikedPhoto = (id: string) => {
-    if (likedPhotos.includes(id)) {
-      setLikedPhotos(likedPhotos.filter((photoid) => photoid !== id));
-    } else {
-        setLikedPhotos([...likedPhotos, id]);
-    }
-
-  };
   return (
     <main className="grid gap-4">
       {mockedPhoto.map((photo) => (
